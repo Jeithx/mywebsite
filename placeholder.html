@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Projets - Sharlee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" 
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header (Aynı yapı) -->
+  <header>
+    <div class="logo">CB</div>
+    <div class="language-toggle">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="tr">TR</button>
+      <button class="lang-btn" data-lang="nl">NL</button>
+    </div>
+  </header>
+
+  <!-- Blob’lar -->
+  <div class="background-shapes">
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+  </div>
+
+  <!-- Projeler İçeriği -->
+  <main class="projects-content">
+    <!-- Sol tarafta büyük resim / placeholder alanı -->
+    <div class="projects-left-panel">
+      <div class="project-preview" id="projectPreview"></div>
+    </div>
+
+    <!-- Sağ tarafta proje listesi -->
+    <div class="projects-right-panel">
+      <h2 data-key="projectsTitle">PROJETS</h2>
+      <span class="projects-count">9</span>
+
+      <ul class="projects-list">
+        <li class="project-item"
+            data-img="images/slide1.png">
+          act responsable
+          <span class="project-subtitle">Développement Web</span>
+        </li>
+        <li class="project-item"
+            data-img="images/slide2.png">
+          dua lipa
+          <span class="project-subtitle">Portrait</span>
+        </li>
+        <li class="project-item"
+            data-img="images/slide3.png">
+          cocolyze
+          <span class="project-subtitle">Design UX/UI</span>
+        </li>
+        <!-- diğer projeler... -->
+      </ul>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+ 

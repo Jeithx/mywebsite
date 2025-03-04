@@ -15,8 +15,9 @@
   <header>
     <div class="logo">CB</div>
     <div class="language-toggle">
-      <a href="#">FR</a>
-      <a href="#">EN</a>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="tr">TR</button>
+      <button class="lang-btn" data-lang="nl">NL</button>
     </div>
   </header>
 
@@ -30,11 +31,13 @@
 
   <!-- Ana içerik (Hero) -->
   <main class="hero-content">
-    <h1>Hey, je suis Charles Bruyere<br>mais vous pouvez m'appeler Sharlee</h1>
-    <p>Je suis designer graphique, UX/UI designer & développeur web front-end</p>
+    <h1 data-key="greeting">Hey, je suis Charles Bruyere<br>mais vous pouvez m'appeler Sharlee</h1>
+    <p data-key="description">Je suis designer graphique, UX/UI designer & développeur web front-end</p>
     <div class="buttons">
-      <a href="#projects" class="btn">→ voir mes projets</a>
-      <a href="#about" class="btn">en savoir plus</a>
+      <a href="placeholder.html" class="btn nav-link" data-key="projectsBtn">
+        → voir mes projets
+      </a>
+      <a href="#about" class="btn" data-key="aboutBtn">en savoir plus</a>
     </div>
   </main>
 

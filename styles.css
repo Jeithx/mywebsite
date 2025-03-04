@@ -33,16 +33,34 @@ header {
   font-size: 1.5rem;
 }
 
-.language-toggle a {
-  margin-left: 20px;
-  text-decoration: none;
+.language-toggle {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.lang-btn {
+  background: transparent;
+  border: 1px solid #fff;
   color: #fff;
+  padding: 5px 10px;
   font-size: 1rem;
-  transition: opacity 0.3s;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
-.language-toggle a:hover {
-  opacity: 0.7;
+
+.lang-btn:hover {
+  background: #fff;
+  color: #0e0e0e;
+  transform: scale(1.05);
 }
+
+.lang-btn:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.3);
+}
+
 
 /* Fareye duyarlı şekillerin kapsayıcısı */
 .background-shapes {
@@ -57,7 +75,7 @@ header {
 
 /* Şekillerin temel stilleri (blob hissi için) */
 .shape {
-  position: absolute;
+  position: relative;
   /* width, height ve border-radius üstteki gibi shape1, shape2, shape3’te özelleşecek */
   background: radial-gradient(
     circle at 30% 30%,
@@ -77,7 +95,9 @@ header {
   border-radius: 50% 40% 60% 50% / 40% 50% 50% 60%;
   top: 10%;
   left: 5%;
-  position: relative; 
+  position: absolute; 
+  animation: shapeEnter 1s ease-out forwards;
+  animation-delay: 0.3s; /* Biraz gecikmeyle başlasın */
 
 }
 
@@ -87,6 +107,11 @@ header {
   border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
   top: 40%;
   left: 60%;
+  animation: shapeEnter 1s ease-out forwards;
+  animation-delay: 0.6s; /* Biraz gecikmeyle başlasın */
+  position: absolute; 
+
+
 }
 
 .shape3 {
@@ -95,6 +120,11 @@ header {
   border-radius: 60% 40% 40% 60% / 50% 60% 40% 50%;
   top: 70%;
   left: 25%;
+  animation: shapeEnter 1s ease-out forwards;
+  animation-delay: 0.9s; /* Biraz gecikmeyle başlasın */
+  position: absolute; 
+
+
 }
 
 .shape::before {
@@ -110,6 +140,25 @@ header {
     rgba(255, 255, 255, 0.07),
     rgba(0, 0, 0, 0) 70%
   );
+}
+
+/* Geçiş animasyonu için blob'ların dönüşüm ayarı */
+.shape.transition-active {
+  transform: scale(10); /* Bu değeri, blob'ların tüm ekranı kaplaması için ayarlayın */
+  transition: transform 1s ease-in-out;
+}
+
+
+/* Giriş animasyonu tanımı */
+@keyframes shapeEnter {
+  0% {
+    /* transform: translateY(50px) scale(0.5); */
+    opacity: 0;
+  }
+  100% {
+    /* transform: translateY(0) scale(1); */
+    opacity: 1;
+  }
 }
 
 
@@ -156,3 +205,82 @@ header {
   background-color: #fff;
   color: #0e0e0e;
 }
+
+/* Projeler İçeriği */
+.projects-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  margin-top: 60px; /* Header’ın kapladığı alan kadar boşluk */
+}
+
+/* Soldaki panel */
+.projects-left-panel {
+  width: 60%;
+  height: 100vh;
+  background-color: #1e1e1e;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Solda proje resmi alanı */
+.project-preview {
+  width: 80%;
+  height: 80%;
+  background-color: #2c2c2c;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.3s ease;
+}
+
+/* Sağdaki panel */
+.projects-right-panel {
+  width: 40%;
+  background-color: #151515;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.projects-right-panel h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.projects-count {
+  font-size: 1.2rem;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.projects-list {
+  list-style: none;
+}
+
+.project-item {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.project-item:hover {
+  color: #ff3b3b;
+}
+
+.project-subtitle {
+  display: block;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 5px;
+}
+
