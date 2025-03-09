@@ -10,6 +10,7 @@
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" 
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p1CmY1Q0Yk/76ScPKGkRka+6tH4aXWurZPvdKjwFqzk9R1Gb1LuWhZL9ZXxwJm+AbHTr6Hyc6jnq5l8cIGzkwg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <!-- Header (Aynı yapı) -->
@@ -29,6 +30,8 @@
     <div class="shape shape3"></div>
   </div>
 
+  
+
   <!-- Projeler İçeriği -->
   <main class="projects-content">
     <!-- Sol tarafta büyük resim / placeholder alanı -->
@@ -36,33 +39,87 @@
       <div class="project-preview" id="projectPreview"></div>
     </div>
 
-    <!-- Sağ tarafta proje listesi -->
     <div class="projects-right-panel">
-      <h2 data-key="projectsTitle">PROJETS</h2>
-      <span class="projects-count">9</span>
+  <!-- Başlık ve proje sayısı aynı satırda -->
+  <div class="projects-header">
+    <h2 class="projects-title">PROJETS</h2>
+    <span class="projects-count">9</span>
+  </div>
 
-      <ul class="projects-list">
-        <li class="project-item"
-            data-img="images/slide1.png">
-          act responsable
-          <span class="project-subtitle">Développement Web</span>
-        </li>
-        <li class="project-item"
-            data-img="images/slide2.png">
-          dua lipa
-          <span class="project-subtitle">Portrait</span>
-        </li>
-        <li class="project-item"
-            data-img="images/slide3.png">
-          cocolyze
-          <span class="project-subtitle">Design UX/UI</span>
-        </li>
-        <!-- diğer projeler... -->
-      </ul>
-    </div>
+  <!-- Projeler Listesi -->
+  <ul class="projects-list">
+    <li class="project-row" data-img="images/slide3.png">
+      <span class="project-name">sharlee</span>
+      <span class="project-category">Branding</span>
+    </li>
+    <li class="project-row" data-img="images/slide3.png">
+      <span class="project-name">act responsable</span>
+      <span class="project-category">Développement Web</span>
+    </li>
+    <li class="project-row" data-img="images/slide3.png">
+      <!-- Örnek: Başına ok koymak için → ekledik -->
+      <span class="project-name">→ dua lipa</span>
+      <span class="project-category">Portrait</span>
+    </li>
+    <li class="project-row" data-img="images/slide3.png">
+      <span class="project-name">cocolyze</span>
+      <span class="project-category">Design UX/UI</span>
+    </li>
+    <li class="project-row" data-img="images/slide3.png">
+      <span class="project-name">les incédies</span>
+      <span class="project-category">Branding</span>
+    </li>
+    <li class="project-row" data-img="images/slide3.png">
+      <span class="project-name">le jeu de l'oie</span>
+      <span class="project-category">Game Design</span>
+    </li>
+    <li class="project-row" data-img="images/slide3.png">
+      <span class="project-name">l'équipe explore</span>
+      <span class="project-category">Illustration</span>
+    </li>
+    <li class="project-row" data-img="images/slide3.png">
+      <span class="project-name">silhouette</span>
+      <span class="project-category">Portrait</span>
+    </li>
+    <li class="project-row" data-img="images/slide3.png">
+      <span class="project-name">portraits</span>
+      <span class="project-category">Portrait</span>
+    </li>
+    <li class="project-row" data-img="images/slide3.png">
+      <span class="project-name">portraits</span>
+      <span class="project-category">Portrait</span>
+    </li>
+    <li class="project-row" data-img="images/slide3.png">
+      <span class="project-name">portraits</span>
+      <span class="project-category">Portrait</span>
+    </li>
+    <li class="project-row" data-img="images/slide3.png">
+      <span class="project-name">portraits</span>
+      <span class="project-category">Portrait</span>
+    </li>
+    <li class="project-row" data-img="images/slide3.png">
+      <span class="project-name">portraits</span>
+      <span class="project-category">Portrait</span>
+    </li>
+    <li class="project-row" data-img="images/slide3.png">
+      <span class="project-name">portraits</span>
+      <span class="project-category">Portrait</span>
+    </li>
+    <li class="project-row" data-img="images/slide3.png">
+      <span class="project-name">portraits</span>
+      <span class="project-category">Portrait</span>
+    </li>
+  </ul>
+</div>
+
   </main>
 
   <script src="script.js"></script>
+
+
+
+
+  
 </body>
 </html>
  

@@ -79,22 +79,31 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
-document.querySelectorAll('.project-item').forEach(item => {
+document.querySelectorAll('.project-row').forEach(item => {
   item.addEventListener('mouseenter', () => {
     // Slideshow'u durdur
     clearInterval(slideshowInterval);
 
-    // Bu projeye ait resmi göster
+    // Bu projeye ait resmi fade in/out ile göstermek için
     const imgPath = item.getAttribute('data-img');
     const preview = document.getElementById('projectPreview');
-    preview.style.backgroundImage = `url(${imgPath})`;
+    
+    // Fade out: opacity'yi 0 yap
+    preview.style.opacity = 0;
+    
+    // Belirli süre sonra resmi değiştirip, fade in yap
+    setTimeout(() => {
+      preview.style.backgroundImage = `url(${imgPath})`;
+      preview.style.opacity = 1;
+    }, 300); // CSS transition süresiyle uyumlu
   });
 
   item.addEventListener('mouseleave', () => {
-    // Kullanıcı projeden ayrılınca slideshow'u yeniden başlat
+    // Fare projeden ayrıldığında slideshow'u yeniden başlat
     startSlideshow();
   });
 });
+
 
 const slideshowImages = [
   'images/slide1.png',
@@ -108,7 +117,17 @@ let slideshowInterval = null;    // setInterval referansı
 // Bir resmi gösteren fonksiyon
 function showSlide(index) {
   const preview = document.getElementById('projectPreview');
-  preview.style.backgroundImage = `url(${slideshowImages[index]})`;
+
+  // 1. Fade out: opacity'yi 0'a çek
+  preview.style.opacity = 0;
+
+  // 2. Fade out tamamlanınca (700ms), resmi değiştirip tekrar opacity'yi 1 yap
+  setTimeout(() => {
+    // Yeni resmi atıyoruz
+    preview.style.backgroundImage = `url(${slideshowImages[index]})`;
+    // Fade in
+    preview.style.opacity = 1;
+  }, 300); // CSS'teki 0.3s ile aynı süre
 }
 
 // Slideshow'u başlatan fonksiyon
@@ -119,7 +138,7 @@ function startSlideshow() {
   slideshowInterval = setInterval(() => {
     currentSlideIndex = (currentSlideIndex + 1) % slideshowImages.length;
     showSlide(currentSlideIndex);
-  }, 2500); // 2.5 saniyede bir resim değişecek
+  }, 4000); // 4 saniyede bir resim değişecek
 }
 
 window.addEventListener('DOMContentLoaded', () => {

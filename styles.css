@@ -220,67 +220,124 @@ header {
 .projects-left-panel {
   width: 60%;
   height: 100vh;
-  background-color: #1e1e1e;
+  /* background-color: #1e1e1e; */
   border-top-right-radius: 40px;
   border-bottom-right-radius: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+  }
 
-/* Solda proje resmi alanı */
 .project-preview {
-  width: 80%;
-  height: 80%;
+  position: relative;
+  width: 70%;              /* Daha küçük yap */
+  aspect-ratio: 16 / 9;    /* Örnek: 16:9 en-boy oranı */
+  /* height: 70%;             Daha küçük yap */
+  border-radius: 20px;     /* Kenarları yumuşat */
+  overflow: hidden;
   background-color: #2c2c2c;
-  border-radius: 20px;
-  background-size: cover;
+  background-size: cover;  /* Resmi kaplayacak şekilde ayarla */
   background-position: center;
   background-repeat: no-repeat;
-  transition: background-image 0.3s ease;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Yumuşak bir gölge */
+  transition: 
+  opacity 0.7s ease;    /* opacity animasyonu */
+  opacity: 1;                 /* Başlangıçta görünür olsun */
+  margin: auto;
+  
 }
 
-/* Sağdaki panel */
+.project-preview::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+  /* Degrade veya sabit bir yarı saydam renk */
+  pointer-events: none;
+}
+
+@keyframes smoothScaleUp {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.02);
+  }
+}
+
+.project-preview:hover {
+  animation: smoothScaleUp 0.3s ease-in-out forwards; /* Hover olduğunda büyütme animasyonu */
+}
+/* Sağ paneli daha “estetik” yapmak için ayarlar */
 .projects-right-panel {
   width: 40%;
-  background-color: #151515;
-  padding: 40px 20px;
+  /* Arka planı istersen transparan bırak veya koyu bir renk ver */
+  /* background-color: #151515; */
+  padding: 60px 40px;      /* İç boşlukları arttırarak ferah görünüm */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  /* align-items: flex-start;  metinleri sola yaslamak istersen */
+  color: #ccc;             /* Yazı rengi (isteğe göre) */
 }
 
-.projects-right-panel h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
+/* Başlık ve proje sayısı */
+.projects-header {
+  display: flex;
+  justify-content: space-between;  /* “PROJETS” solda, “9” sağda */
+  align-items: baseline;
+  margin-bottom: 20px;             /* Listeyle araya boşluk */
+}
+
+.projects-title {
+  font-size: 2.2rem;        /* Başlık boyutu */
+  font-weight: 600;         /* Kalınlık */
+  letter-spacing: 0.05em;   /* Harfler arası boşluk */
+  text-transform: uppercase; /* Büyük harf */
 }
 
 .projects-count {
   font-size: 1.2rem;
-  color: #888;
-  margin-bottom: 20px;
+  color: #888;              /* Sayıyı hafif soluk yap */
 }
 
+/* Liste (çizgili stil) */
 .projects-list {
   list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #444; /* Üstte ince bir çizgi */
 }
 
-.project-item {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  cursor: pointer;
-  position: relative;
+/* Her satır, sol ve sağ alan (isim ve kategori) */
+.project-row {
+  display: flex;
+  justify-content: space-between; /* Solda proje adı, sağda kategori */
+  align-items: center;
+  padding: 10px 0;                /* Satır yüksekliği */
+  border-bottom: 1px solid #444;  /* Alt çizgi */
   transition: color 0.3s;
 }
 
-.project-item:hover {
-  color: #ff3b3b;
+/* Son satırda alt çizgiyi kaldırmak istersen */
+.project-row:last-child {
+  border-bottom: none;
 }
 
-.project-subtitle {
-  display: block;
-  font-size: 0.9rem;
-  color: #aaa;
-  margin-top: 5px;
+.project-name {
+  font-size: 1rem;
+  /* text-transform: lowercase; // İstersen hepsini küçük yap */
+  /* veya text-transform: capitalize; // kelimelerin baş harfi büyük */
 }
+
+.project-category {
+  font-size: 1rem;
+  color: #888;
+}
+
+.project-row:hover {
+  color: #fff; /* Hover’da hem name hem category beyaza döner */
+}
+
 
